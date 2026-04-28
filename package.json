@@ -1,0 +1,18 @@
+{
+  "name": "playwright-login-tests",
+  "version": "1.0.0",
+  "description": "Playwright login automation framework using Page Object Model",
+  "scripts": {
+    "test": "playwright test",
+    "test:positive": "playwright test tests/login-positive.spec.ts",
+    "test:negative": "playwright test tests/login-negative.spec.ts",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright test show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "@types/node": "^20.0.0",
+    "dotenv": "^16.4.5",
+    "typescript": "^5.4.5"
+  }
+}
