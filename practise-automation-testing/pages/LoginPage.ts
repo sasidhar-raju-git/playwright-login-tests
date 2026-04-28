@@ -8,6 +8,7 @@ export class LoginPage {
   readonly passwordInput: Locator;
   readonly submitButton: Locator;
   readonly errorMessage: Locator;
+  readonly successHeading: Locator;  
   readonly successMessage: Locator;
   readonly logoutButton: Locator;
 
@@ -17,6 +18,7 @@ export class LoginPage {
     this.passwordInput = page.locator('#password');
     this.submitButton = page.locator('#submit');
     this.errorMessage = page.locator('#error');
+    this.successMessage = page.getByLocator('h1');    
     this.successMessage = page.getByText(/Congratulations| successfully logged in/i);
     this.logoutButton = page.locator('.wp-block-button__link');
   }
@@ -44,6 +46,7 @@ export class LoginPage {
   }
 
   async assertLoginSuccess(): Promise<void> {
+    await expect(this.successHeading).toContainText('Logged In Successfully');
     await expect(this.successMessage).toBeVisible();
     await expect(this.logoutButton).toBeVisible();
   }
